@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Incluimos Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Incluimos Angular -->
+    <script src="/Recursos/js/lib/angular.min.js"></script>
+    <title>Ejercicio 01</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <menu>
+        <div class="container">
+            <h1>Evaluaci&oacute;n</h1>
+            <h4>AngularJS 101</h4>
+            <hr>
+            <p>
+                <label for="nombre-input">Nombre completo:</label>
+                <input type="text" class="form-control" name="nombre-input" ng-model="nombre">
+            </p>
+            <p>
+                <label for="trabajo-input">Lugar de trabajo:</label>
+                <input type="text" class="form-control" name="trabajo-input" ng-model="lugarTrabajo">
+            </p>
+            <p>
+                <label for="salario-input">Salario (MXN):</label>
+                <input type="text" class="form-control" name="salario-input" ng-model="salario">
+            </p>
+            <hr>
+            <p><b>Nombre: {{nombre | uppercase}} <b></b></p>
+            <p><b>Lugar de Trabajo: {{lugarTrabajo}}<b></b></p>
+            <p><b>Salario: {{salario | currency: "MXN $"}}<b></b></p>
+        </div>
+    </menu>
+</body>
+</html>

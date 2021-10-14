@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="universidadApp">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Ejercicio 04 - ng-repeat</title>
+        <!-- Incluir Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <!-- Incluir Animate.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <!-- Incluir AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <style>
+            .avatar{
+                width: 75px;
+                height: 75px;
+                border-radius:50%;
+            }
+            .puntero{
+              cursor: pointer;
+            }
+        </style>
+
+    </head>    
+    <body>
+
+        <div class="container" ng-controller="listadoCtrl">
+            
+            <h1>Filtros</h1>
+            <h4>Para el ng-repeat</h4>
+            <hr>
+            <div class="row">
+              <input type="text" ng-model="busqueda.nombre" class="form-control" placeholder="Ingresa un nombre para buscar">
+              Sexo:
+              <select ng-model="busqueda.sexo" class="form-control" name="" id="">
+                <option value="">Cualquiera</option>
+                <option value="hombre">Hombres</option>
+                <option value="mujer">Mujeres</option>
+              </select>
+            </div>
+            <br>
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col"><a ng-click="reverse = !reverse" class="puntero">Nombre</a><span ng-hide="reverse"> (A-Z)</span><span ng-show="reverse"> (Z-A)</span></th>
+                    <th scope="col"><a ng-click="reverse = !reverse">Sexo</a></th>
+                    <th scope="col"><a ng-click="reverse = !reverse">Telefono</a></th>
+                    <th scope="col"><a ng-click="reverse = !reverse">Celular</a></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="profesor in personas | filter:busqueda | orderBy:'nombre':reverse">
+                    <th scope="row"><img ng-src="img/{{profesor.avatar}}" class="avatar" alt=""></th>
+                    <td>{{profesor.nombre}}</td>
+                    <td>{{profesor.sexo}}</td>
+                    <td>{{profesor.telefono}}</td>
+                    <td>{{profesor.celular}}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div><!-- fin del listadoCtrl -->
+    </body>
+</html>
